@@ -1,0 +1,13 @@
+<div class="parent">
+<h1 >Parent Component</h1>
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+  </ul>
+<app-child-demo [item]="currentItem" (newItem)="addItem($event)"></app-child-demo>
+
+</div>
+
+
+
+ 
+  

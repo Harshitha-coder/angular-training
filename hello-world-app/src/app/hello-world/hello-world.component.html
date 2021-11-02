@@ -1,0 +1,19 @@
+<!-- <div>
+<button (click)="onEditClick()">Click me</button>
+<button
+  [disabled]="canClick"
+  (click)="clearMessage()">
+  Clear me
+</button>
+</div>
+<p >{{ message }}</p>  -->
+
+<input type="text"  name="name" #name>
+
+
+<button type="button" (click)="onSubmit(name.value)">submit</button>
+
+<h1> {{currentValue}}</h1>
+
+
+

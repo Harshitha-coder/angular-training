@@ -1,0 +1,46 @@
+<div style="text-align: center;">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+       <div class="form-group">
+    <label for="first-name">First Name: </label>
+    <input   required type="text" class="form-control" formControlName="firstName" placeholder="enter first name">
+          <div *ngIf="firstName.touched && firstName.invalid" class="alert">
+             <div *ngIf="firstName.errors?.required">
+                  firstName is required
+             </div>
+          </div>
+          </div>
+  <br>
+
+    <label for="last-name">Last Name: </label>
+    <input  type="text" formControlName="lastName" placeholder="enter last name" required>
+<br>
+<br>
+    <div formGroupName="address">Address:
+        <br>
+        <br>
+        
+    <label for="street">Street: </label>
+    <input type="text" formControlName="street" placeholder="enter street">
+
+  <br>
+
+    <label for="city">City: </label>
+    <input  type="text" formControlName="city" placeholder="enter city">
+  
+    <label for="country">Country: </label>
+    <input  type="text" formControlName="country" placeholder="enter country">
+
+    <label for="state">State: </label>
+    <input  type="text" formControlName="state" placeholder="enter state">
+    <br>
+    <label for="zip">Zip: </label>
+    <input  type="text" formControlName="zip" placeholder="enter zip">
+    </div>
+    <br>
+    <button type="submit" [disabled]=!profileForm.valid>Submit</button>
+  </form>
+  <br>
+  <br>
+  <button (click)="updateProfile()">Update Profile</button>
+  </div>
+ 

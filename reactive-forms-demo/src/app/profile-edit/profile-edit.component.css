@@ -1,0 +1,11 @@
+label
+{
+    display:block;
+    font-weight: bold;
+}
+.alert
+{
+    background-color: red;
+    color: black;
+}
+
