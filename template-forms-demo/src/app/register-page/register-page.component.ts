@@ -12,4 +12,19 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public message:any = '';
+  canSubmit = false;
+
+ submit(register:any) {
+    // this.canSubmit = !this.canSubmit;
+    // if (this.canSubmit) {
+    //   this.message = "account created successfully";
+    // } 
+    // else{
+    //   this.message="account is not created";
+    // }
+    console.log("account created",register)
+}
+
+
 }
