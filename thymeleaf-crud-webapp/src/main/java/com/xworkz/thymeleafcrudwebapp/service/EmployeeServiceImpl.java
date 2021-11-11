@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee getById(int id) {
+	public Employee getEmployeeById(int id) {
 		Optional<Employee> optional=this.repository.findById(id);
 		Employee employee=null;
 		if(optional.isPresent())
@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void deleteById(int id) {
+	public void deleteEmployeeById(int id) {
 		this.repository.deleteById(id);
 	}
 
