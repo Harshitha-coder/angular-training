@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.xworkz.thymeleafcrudwebapp.model.Employee;
@@ -28,14 +31,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee getEmployeeById(int id) {
-		Optional<Employee> optional=this.repository.findById(id);
-		Employee employee=null;
-		if(optional.isPresent())
-		{
-			employee=optional.get();
-		}
-		else
-		{
+		Optional<Employee> optional = this.repository.findById(id);
+		Employee employee = null;
+		if (optional.isPresent()) {
+			employee = optional.get();
+		} else {
 			throw new RuntimeException("data is not found for entered id");
 		}
 		return employee;
@@ -44,6 +44,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void deleteEmployeeById(int id) {
 		this.repository.deleteById(id);
+	}
+
+	@Override
+	public Page<Employee> findPage(int pageNo, int pageSize) {
+		Pageable page = PageRequest.of(pageNo - 1, pageSize);
+		return this.repository.findAll(page);
 	}
 
 }
